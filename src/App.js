@@ -1,26 +1,23 @@
-import React, { useState } from 'react';
 import './App.css';
-import { ProductProvider } from './ProductContext';
+import { ProductProvider } from './context/ProductContext';
+import { CartProvider } from './context/CartContext';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
+import DarkMode from './components/DarkMode';
 
 function App() {
 
-  const [cartItems, setCartItems] = useState([])
-
-  const handleAddToCart = (product) => {
-    setCartItems([...cartItems, product]);
-  };
-
   return (
+    <CartProvider>
     <ProductProvider>
       <div className="App">
+      <DarkMode />
         <h1>Projekt zaliczeniowy</h1>
-        <ProductList onAddToCart={handleAddToCart} />
-        <Cart cartItems={cartItems} />
-    
+        <ProductList/>
+        <Cart />
       </div>
     </ProductProvider>
+    </CartProvider>
   );
 }
 

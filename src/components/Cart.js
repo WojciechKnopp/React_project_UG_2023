@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
-const Cart = ({cartItems}) => {
+const Cart = () => {
+  const { cartItems } = useContext(CartContext);
 
     return (
         <div className="cart">
@@ -11,9 +13,8 @@ const Cart = ({cartItems}) => {
             <div className="cart-items">
                 {cartItems.map(item => (
                     <div className="cart-item" key={item.id}>
-                        <h3>{item.name}</h3>
-                        <p>{item.price}</p>
-                        <img className='product-image' src={item.image} alt={item.name} /><br></br>
+                        <strong>{item.name} </strong>
+                        <span>{item.price}</span>
                     </div>
                 ))}
             </div>

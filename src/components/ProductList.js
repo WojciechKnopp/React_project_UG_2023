@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useProductContext } from '../ProductContext';
+import React, { useState, useContext, useMemo } from 'react';
+import { useProductContext } from '../context/ProductContext';
+import { CartContext } from '../context/CartContext';
 
 const ProductList = ({onAddToCart}) => {
     const { products } = useProductContext();
@@ -16,9 +17,31 @@ const ProductList = ({onAddToCart}) => {
         }
     }
 
+    // shopping cart
+    const { addToCart } = useContext(CartContext);
+    const handleAddToCart = (product) => {
+        addToCart(product);
+    };
+
+    // filtering products
+    const [filterText, setFilterText] = useState('');
+    const filteredProducts = useMemo(() => {
+        return products.filter((product) => {
+            return product.name.toLowerCase().includes(filterText.toLowerCase());
+        });
+    }, [products, filterText]);
+
+    const handleSearchChange = (event) => {
+        setFilterText(event.target.value);
+    };
+
     return (
+        <>
+        <div>
+            <input type="text" value={filterText} onChange={handleSearchChange} />
+        </div>
         <div className="product-list">
-            {products.map(product => (
+            {filteredProducts.map(product => (
                 <div className="product" key={product.id}>
                     <h3>{product.name}</h3>
                     <p>{product.price}</p>
@@ -28,10 +51,11 @@ const ProductList = ({onAddToCart}) => {
                     <button onClick={()=> handleDetailsClick(product.id)}>
                         {detailsVisibleId === product.id ? 'ukryj' : 'pokaż'}
                     </button>
-                    <button onClick={() => onAddToCart(product)}>Dodaj do koszyka</button>
+                    <button onClick={() => handleAddToCart(product)}>Dodaj do koszyka</button>
                 </div>
             ))}
         </div>
+        </>
     );
 }
 

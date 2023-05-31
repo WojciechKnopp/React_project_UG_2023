@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import ProductData from './data.json';
+import ProductData from '../data.json';
 
 const ProductContext = createContext();
 
