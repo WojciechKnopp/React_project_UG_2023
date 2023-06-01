@@ -16,7 +16,7 @@
     {
         "id": 3,
         "name": "Big Mac",
-        "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_201907_0005_BigMac_832x472:1-3-product-tile-desktop?wid=765&hei=472&dpr=off",
+        "image": "https://assets.stickpng.com/images/5882482de81acb96424ffaac.png",
         "price": 4.99,
         "description": "The Big Mac is a hamburger sold by international fast food restaurant chain McDonald's. It was introduced in the Greater Pittsburgh area, United States, in 1967 and nationwide in 1968. It is one of the company's flagship products." 
     },
@@ -26,5 +26,19 @@
         "image": "https://cdn.mcdonalds.pl/uploads/20221109151634/07-01-frytki-singlepage-copy.png",
         "price": 2.99,
         "description": "French fries, or simply fries, chips, finger chips, or French-fried potatoes, are batonnet or allumette-cut deep-fried potatoes."
+    },
+    {
+        "id": 5,
+        "name": "McFlurry",
+        "image": "https://cdn.mcdonalds.pl/uploads/20211015141015/skomponuj-mcflurry-1090x664px-2.png",
+        "price": 3.99,
+        "description": "McFlurry is a brand of flavored ice cream distributed by the international fast food restaurant chain McDonald's. It was first introduced in 1997 in Canada, then rolled out to the United States in 1998."
+    },
+    {
+        "id": 6,
+        "name": "Ciastko jabłkowe",
+        "image": "https://cdn.mcdonalds.pl/uploads/20210608163713/opt/mcd-www-singlepage-ciastko-jablko-1.png",
+        "price": 1.99,
+        "description": "Apple pie is a fruit pie in which the principal filling ingredient is apple, originated in England. It is often served with whipped cream, ice cream, or cheddar cheese."
     }
 ]
