@@ -5,7 +5,7 @@ function DarkMode() {
 
   useLayoutEffect(() => {
     const body = document.querySelector('body');
-    body.style.backgroundColor = isWhite ? 'white' : 'black';
+    body.style.backgroundColor = isWhite ? 'whitesmoke' : 'black';
     body.style.color = isWhite ? 'black' : 'white'
 
     return () => {
@@ -19,9 +19,8 @@ function DarkMode() {
 
   return (
     <div>
-      <h2>Background Changer</h2>
       <button onClick={toggleBackground}>
-        Change Background to {isWhite ? 'Black' : 'White'}
+        {isWhite ? 'DarkMode' : 'LightMode'}
       </button>
     </div>
   );
