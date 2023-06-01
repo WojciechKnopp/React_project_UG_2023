@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { ProductProvider } from './context/ProductContext';
 import { CartProvider } from './context/CartContext';
 import Page from './components/ProductsPage';
