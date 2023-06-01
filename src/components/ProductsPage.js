@@ -1,43 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import ProductList from './ProductList';
-import { CartContext } from "../context/CartContext";
 import { Link } from 'react-router-dom';
+import { CartContext } from "../context/CartContext";
+import PopupTimer from "./PopupTimer";
 
 const Page = () => {
 
-// clear cart
-const { clearCart } = React.useContext(CartContext);
+    const { cartItems } = useContext(CartContext);
 
-// timeout
-useEffect(() => {
-    let timeout;
-
-    const resetTimeout = () => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            // przeniesienie na strone domowa
-            window.location.href = "/";
-            clearCart();
-        }, 1000 * 30 ); // 30 seconds
-        
-        document.addEventListener('mousemove', resetTimeout);
-        document.addEventListener('keydown', resetTimeout);
-    };
-
-    resetTimeout();
-
-    return () => {
-        clearTimeout(timeout);
-        document.removeEventListener('mousemove', resetTimeout);
-        document.removeEventListener('keydown', resetTimeout);
-    };
-}, []);
-
-return (
-    <div className="Page">
-        <ProductList/>
-        <Link to="/cart">Przejdź do podsumowania</Link>
-    </div>
-)}
-
+    return (
+        <div className="Page">
+            <ProductList/>
+            <span className="cart-items">Liczba elementów w koszyku: {cartItems.length}</span>
+            <Link to="/cart"><button>Przejdź do podsumowania</button></Link>
+            <PopupTimer />
+        </div>
+    );
+}
 export default Page;
