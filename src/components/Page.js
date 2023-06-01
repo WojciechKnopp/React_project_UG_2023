@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductList from './ProductList';
 import Cart from './Cart';
 import DarkMode from './DarkMode';
+import { CartContext } from "../context/CartContext";
 
 const Page = () => {
 
@@ -14,6 +15,9 @@ const handleWelcomePageClose = () => {
   setWelcomePage(false);
 }
 
+// clear cart
+const { clearCart } = React.useContext(CartContext);
+
 // timeout
 useEffect(() => {
     let timeout;
@@ -21,7 +25,9 @@ useEffect(() => {
     const resetTimeout = () => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
+            // przeniesienie na strone domowa
             setWelcomePage(true);
+            clearCart();
         }, 1000 * 30 ); // 30 seconds
         
         document.addEventListener('mousemove', resetTimeout);
