@@ -1,21 +1,10 @@
 import React, { useState, useContext, useMemo } from 'react';
 import { useProductContext } from '../context/ProductContext';
 import { CartContext } from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const ProductList = ({onAddToCart}) => {
     const { products } = useProductContext();
-
-    const [detailsVisibleId, setDetailsVisibleId] = useState(null);
-
-    const handleDetailsClick = (Id) => {
-        if (detailsVisibleId === Id) {
-            // hide showed details
-            setDetailsVisibleId(null);
-        } else {
-            // show details
-            setDetailsVisibleId(Id);
-        }
-    }
 
     // shopping cart
     const { addToCart } = useContext(CartContext);
@@ -47,10 +36,7 @@ const ProductList = ({onAddToCart}) => {
                     <div className="card-body">
                         <h3 className="card-title">{product.name}</h3>
                         <p className="card-text"><strong>{product.price} zł</strong></p>
-                        {detailsVisibleId === product.id && <p>{product.description}</p>}
-                        <button className='ovr-btn' onClick={()=> handleDetailsClick(product.id)}>
-                            {detailsVisibleId === product.id ? 'Ukryj szczegóły' : 'Pokaż szczegóły'}
-                        </button>
+                        <Link to={`/products/${product.id}`} className='ovr-btn'>Szczegóły</Link>
                         <button className='ovr-btn' onClick={() => handleAddToCart(product)}>Dodaj do koszyka</button>
                     </div> 
                 </div>

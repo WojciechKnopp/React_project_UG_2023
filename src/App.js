@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Cart from './components/Cart';
 import DarkMode from './components/DarkMode';
 import MainPage from './components/MainPage';
+import ProductDetails from './components/ProductDetails';
 
 
 const NotFound = () => (
@@ -15,7 +16,7 @@ const NotFound = () => (
   </div>
 );
   
-function App() {
+const App = () => {
 
   return (
     <CartProvider>
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/products" element={<Page />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
