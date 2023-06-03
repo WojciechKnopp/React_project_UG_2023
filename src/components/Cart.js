@@ -42,7 +42,7 @@ const Cart = () => {
                     </table>
                     <div className='d-flex justify-content-evenly'>
                         <Link to="/products"><button className='ovr-btn'>Wróć</button></Link>
-                        <Link to="/order"><button className='ovr-btn'>Dalej</button></Link>
+                        <Link to="/delivery"><button className='ovr-btn'>Dalej</button></Link>
                     </div>
                     </>
                 )}
