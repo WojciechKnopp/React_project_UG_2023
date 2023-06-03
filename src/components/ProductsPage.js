@@ -9,7 +9,7 @@ const Page = () => {
     const { cartItems } = useContext(CartContext);
 
     return (
-        <div className="Page">
+        <div className="page pb-5">
             <ProductList/>
             <div className="bottom-panel fixed-bottom d-flex justify-content-center align-items-center">
             <Link to="/cart" className="text-end" style={{flex: "1 0 0", justifyContent: "flex-end"}}><button className="ovr-btn">Przejdź do podsumowania</button></Link>
@@ -23,15 +23,3 @@ const Page = () => {
     );
 }
 export default Page;
-
-// .flex { 
-//     display: flex; 
-//     align-items: center;
-//     justify-content: space-between;
-//   }
-//   .flex > span {
-//     flex: 1 0 0;
-//   }
-//   .flex > span:nth-child(2) {
-//     text-align: center;
-//   }

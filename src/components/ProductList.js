@@ -27,7 +27,7 @@ const ProductList = ({onAddToCart}) => {
     return (
         <>
         <div className='d-flex justify-content-center'>
-            <input placeholder='Wyszukaj produkt' type="text" value={filterText} onChange={handleSearchChange} />
+            <input className='ovr-inp' placeholder='Wyszukaj produkt' type="text" value={filterText} onChange={handleSearchChange} />
         </div>
         <div className="product-list d-flex flex-wrap">
             {filteredProducts.map(product => (

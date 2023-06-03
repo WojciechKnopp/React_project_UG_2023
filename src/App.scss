@@ -8,17 +8,20 @@ $position-values: map-merge($position-values, $custom-position);
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 $cart-image: url("./media/cart_image.png");
+$cart-image-dark-theme: url("./media/cart_image_dark_theme.png");
 
 $color1: #151b54;
 $color2: #000080;
 $color3: #0000CD;
 $main-color: #87CEFA;
+$grayish: rgb(219, 219, 219);
 
 #root{
     position: relative;
     padding: 3em;
     height: 100vh;
 }
+
 
 @mixin theme-colors($light-theme: true){
     @if $light-theme{
@@ -44,6 +47,14 @@ $main-color: #87CEFA;
 
     .bottom-panel{
         background-color: darken($main-color, 10%);
+
+        .cart-image{
+            background-image: $cart-image;
+        }
+    }
+
+    div.cart{
+        background-color: whitesmoke;
     }
 }
 .dark-mode{
@@ -59,6 +70,23 @@ $main-color: #87CEFA;
 
     .bottom-panel{
         background-color: lighten($color1, 10%);
+
+        .cart-image{
+            background-image: $cart-image-dark-theme;
+        }
+    }
+
+    div.product{
+        background-color: $grayish;
+    }
+
+    input{
+        background-color: $grayish;
+    }
+
+    div.cart{
+        background-color: $grayish;
+        color: $color1;
     }
 }
 
@@ -84,7 +112,19 @@ button.ovr-btn{
     @extend .ovr-btn;
     margin-right: 0.2em;
 }
+
+.btn-right{
+    @extend .ovr-btn;
+    margin-left: 0.4em;
+}
 // #endregion
+
+input.ovr-inp{
+    border: $color1 solid 1px;
+    border-radius: 10px;
+    color: $color1;
+    padding: .2em .4em;
+}
 
 .product-list{
     justify-content: space-evenly;
@@ -101,7 +141,6 @@ div.product{
     border: $color1 solid 1px;
 
     .cart-image{
-        background-image: $cart-image;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -110,6 +149,12 @@ div.product{
         position: relative;
         margin: .5em 1em;
     }
+}
+
+div.cart{
+    border: $color1 solid 1px;
+    border-radius: 1rem;
+    padding: 3em;
 }
 
 // popup
@@ -141,3 +186,6 @@ div.product{
     }
   }
   
+td.pl{
+    padding-left: 1rem;
+}

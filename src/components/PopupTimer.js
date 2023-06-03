@@ -64,7 +64,7 @@ const PopupTimer = () => {
             timeout = setTimeout(() => {
                 // popup window asking are you there?
                 setShowPopup(true);
-            }, 1000 * 30 ); // 30 seconds
+            }, 1000 * 300 ); // 30 seconds
             
             document.addEventListener('mousemove', resetTimeout);
             document.addEventListener('keydown', resetTimeout);
