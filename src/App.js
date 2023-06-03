@@ -8,27 +8,9 @@ import DarkMode from './components/DarkMode';
 import MainPage from './components/MainPage';
 
 
-const Home = () => (
-  <div>
-    <MainPage />
-  </div>
-);  
-
-const Products = () => (
-  <div>
-    <Page />
-  </div>
-);
-
-const Order = () => (
-  <div>
-    <Cart />
-  </div>
-);
-
 const NotFound = () => (
   <div>
-    <h1>404 - Nie znaleziono strony</h1>
+    <h1 className='alert alert-danger'>404 - Nie znaleziono strony</h1>
     <Link to="/">Strona domowa</Link>
   </div>
 );
@@ -39,13 +21,11 @@ function App() {
     <CartProvider>
     <ProductProvider>
       <Router>
-        <Link to="/">Strona domowa</Link>
-        <Link to="/cart">Przejdź do podsumowania</Link>
         <DarkMode />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/cart" element={<Order />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/products" element={<Page />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

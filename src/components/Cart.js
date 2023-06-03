@@ -27,9 +27,9 @@ const Cart = () => {
                     ))}
                     <p>Suma: {sumPrice} zł</p>
                     <button onClick={clearCart}>Wyczyść koszyk</button>
-                    <Link to="/products">Wróć do produktów</Link>
                 </div>
             )}
+            <Link to="/products">Wróć do produktów</Link>
         </div>
     );
 }

@@ -11,8 +11,11 @@ const Page = () => {
     return (
         <div className="Page">
             <ProductList/>
-            <span className="cart-items">Liczba elementów w koszyku: {cartItems.length}</span>
-            <Link to="/cart"><button>Przejdź do podsumowania</button></Link>
+            <div className="bottom-panel fixed-bottom d-flex justify-content-center align-items-center">
+            <span className="fs-5">Koszyk: {cartItems.length}</span>
+            <Link to="/cart"><button className="ovr-btn">Przejdź do podsumowania</button></Link>
+            <Link to="/"><button className="ovr-btn">Anuluj zamówienie</button></Link>
+            </div>
             <PopupTimer />
         </div>
     );

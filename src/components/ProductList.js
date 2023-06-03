@@ -37,21 +37,22 @@ const ProductList = ({onAddToCart}) => {
 
     return (
         <>
-        <div>
-            <input type="text" value={filterText} onChange={handleSearchChange} />
+        <div className='d-flex justify-content-center'>
+            <input placeholder='Wyszukaj produkt' type="text" value={filterText} onChange={handleSearchChange} />
         </div>
-        <div className="product-list">
+        <div className="product-list d-flex flex-wrap">
             {filteredProducts.map(product => (
-                <div className="product" key={product.id}>
-                    <h3>{product.name}</h3>
-                    <p>{product.price}</p>
-                    <img className='product-image' src={product.image} alt={product.name} /><br></br>
-
-                    {detailsVisibleId === product.id && <p>{product.description}</p>}
-                    <button onClick={()=> handleDetailsClick(product.id)}>
-                        {detailsVisibleId === product.id ? 'ukryj' : 'pokaż'}
-                    </button>
-                    <button onClick={() => handleAddToCart(product)}>Dodaj do koszyka</button>
+                <div className="product card" key={product.id}>
+                    <img className='card-img-top' src={product.image} alt={product.name} />
+                    <div className="card-body">
+                        <h3 className="card-title">{product.name}</h3>
+                        <p className="card-text"><strong>{product.price} zł</strong></p>
+                        {detailsVisibleId === product.id && <p>{product.description}</p>}
+                        <button className='ovr-btn' onClick={()=> handleDetailsClick(product.id)}>
+                            {detailsVisibleId === product.id ? 'Ukryj szczegóły' : 'Pokaż szczegóły'}
+                        </button>
+                        <button className='ovr-btn' onClick={() => handleAddToCart(product)}>Dodaj do koszyka</button>
+                    </div> 
                 </div>
             ))}
         </div>

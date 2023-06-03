@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const MainPage = () => {
 
     return (
-        <div className="MainPage">
+        <div className="h-100 d-flex flex-column align-items-center justify-content-center">
             <h1>Witaj w kiosku</h1>
-            <Link to="/products">Przejdź do produktów</Link>
+            <Link to="/products"><button className="btn-start">Złóż zamówienie</button></Link>
         </div>
     )
 }

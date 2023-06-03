@@ -1,7 +1,92 @@
-// $main-color: #f5f5f5;
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+// modify bootstrap variables (add to map)
+$custom-position:(
+    5: 5%,
+);
+$position-values: map-merge($position-values, $custom-position);
+@import "../node_modules/bootstrap/scss/bootstrap";
 
-.product-image{
-    width: 200px;
+
+$color1: #151b54;
+$color2: #000080;
+$color3: #0000CD;
+$main-color: #87CEFA;
+
+#root{
+    position: relative;
+    padding: 3em;
+    height: 100vh;
+}
+
+@mixin theme-colors($light-theme: true){
+    @if $light-theme{
+        background-color: $main-color;
+        color: $color1;
+    } @else {
+        background-color: $color1;
+        color: white;
+    }
+}
+
+.light-mode{
+    @include theme-colors();
+
+    button.ovr-btn{
+        background-color: $color2;
+        color: white;
+
+        &:hover{
+            background-color: $color3;
+        }
+    }
+
+    .bottom-panel{
+        background-color: darken($main-color, 10%);
+    }
+}
+.dark-mode{
+    @include theme-colors($light-theme: false);
+
+    button.ovr-btn{
+        background-color: $color3;
+
+        &:hover{
+            background-color: $color2;
+        }
+    }
+
+    .bottom-panel{
+        background-color: lighten($color1, 10%);
+    }
+}
+
+// #region buttons
+button.ovr-btn{
+    border: $color1 solid 1px;
+    border-radius: 10px;
+    background-color: $color3;
+    color: white;
+}
+
+.btn-start{
+    @extend .ovr-btn;
+    padding: 0.5em 1em;
+}
+// #endregion
+
+.product-list{
+    justify-content: space-evenly;
+}
+
+.product{
+    width: 14rem;
+    margin: 1em;
+}
+
+.bottom-panel{
+    z-index: 1;
+    border: $color1 solid 1px;
 }
 
 // popup
@@ -15,6 +100,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 9999;
   
     .popup-content {
       background-color: #fff;

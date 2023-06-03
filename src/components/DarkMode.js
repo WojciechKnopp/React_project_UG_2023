@@ -5,11 +5,10 @@ function DarkMode() {
 
   useLayoutEffect(() => {
     const body = document.querySelector('body');
-    body.style.backgroundColor = isWhite ? 'whitesmoke' : 'black';
-    body.style.color = isWhite ? 'black' : 'white'
+    body.className = isWhite ? 'light-mode' : 'dark-mode';
 
     return () => {
-      body.style.backgroundColor = '';
+      body.className = '';
     };
   }, [isWhite]);
 
@@ -18,8 +17,8 @@ function DarkMode() {
   };
 
   return (
-    <div>
-      <button onClick={toggleBackground}>
+    <div className='position-absolute top-5 end-5'>
+      <button className='ovr-btn btn btn-sm' onClick={toggleBackground}>
         {isWhite ? 'DarkMode' : 'LightMode'}
       </button>
     </div>
