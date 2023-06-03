@@ -56,6 +56,10 @@ $grayish: rgb(219, 219, 219);
     div.cart{
         background-color: whitesmoke;
     }
+
+    .popup-content{
+        background-color: whitesmoke;
+    }
 }
 .dark-mode{
     @include theme-colors($light-theme: false);
@@ -87,6 +91,10 @@ $grayish: rgb(219, 219, 219);
     div.cart{
         background-color: $grayish;
         color: $color1;
+    }
+
+    .popup-content{
+        background-color: $grayish;
     }
 }
 
@@ -171,18 +179,18 @@ div.cart{
     z-index: 9999;
   
     .popup-content {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      text-align: center;
-  
-      .buttons {
-        margin-top: 20px;
-  
-        button {
-          margin-right: 10px;
+        color: $color1;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    
+        .buttons {
+            margin-top: 20px;
+    
+            button {
+            margin-right: 10px;
+            }
         }
-      }
     }
   }
   

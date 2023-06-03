@@ -55,7 +55,7 @@ const PopupTimer = () => {
     }, [showPopup]);
 //#endregion
 
-//#region main timeout
+//#region timeout
     useEffect(() => {
         let timeout;
 
@@ -64,7 +64,7 @@ const PopupTimer = () => {
             timeout = setTimeout(() => {
                 // popup window asking are you there?
                 setShowPopup(true);
-            }, 1000 * 300 ); // 30 seconds
+            }, 1000 * 30 ); // 30 seconds
             
             document.addEventListener('mousemove', resetTimeout);
             document.addEventListener('keydown', resetTimeout);
@@ -89,8 +89,8 @@ const PopupTimer = () => {
                 <div className="popup-content">
                     <h3>Jesteś z nami?</h3>
                     <div className="buttons">
-                    <button onClick={handlePopupButtonNo}>Tak</button>
-                    <button onClick={goBackToWelcomePage}>Nie ({remainingTime})</button>
+                    <button className='ovr-btn' onClick={handlePopupButtonNo}>Tak</button>
+                    <button className='ovr-btn' onClick={goBackToWelcomePage}>Nie ({remainingTime})</button>
                     </div>
                 </div>
             </div>
