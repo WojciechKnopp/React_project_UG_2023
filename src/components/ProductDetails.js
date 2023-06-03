@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useProductContext } from '../context/ProductContext';
 
 const ProductDetails = () => {
@@ -8,7 +8,6 @@ const ProductDetails = () => {
     const product = products.find(product => product.id === parseInt(id));
 
     return (
-        // show details of the product
         <div className="product details" key={product.id}>
             <img className='card-img-top' src={product.image} alt={product.name} />
             <div className="card-body">
@@ -16,6 +15,7 @@ const ProductDetails = () => {
                 <p className="card-text"><strong>{product.price} zł</strong></p>
                 <p>{product.description}</p>
             </div>
+            <Link to='/products'><button className='ovr-btn'>Wróć do produktów</button></Link>
         </div>
     );
 }

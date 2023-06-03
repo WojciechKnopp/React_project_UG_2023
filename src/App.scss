@@ -7,6 +7,7 @@ $custom-position:(
 $position-values: map-merge($position-values, $custom-position);
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+$cart-image: url("./media/cart_image.png");
 
 $color1: #151b54;
 $color2: #000080;
@@ -73,20 +74,42 @@ button.ovr-btn{
     @extend .ovr-btn;
     padding: 0.5em 1em;
 }
+
+.btn-upper{
+    @extend .ovr-btn;
+    margin-bottom: 0.2em;
+}
+
+.btn-left{
+    @extend .ovr-btn;
+    margin-right: 0.2em;
+}
 // #endregion
 
 .product-list{
     justify-content: space-evenly;
 }
 
-.product{
+div.product{
     width: 14rem;
     margin: 1em;
+    border-radius: 1rem;
 }
 
 .bottom-panel{
     z-index: 1;
     border: $color1 solid 1px;
+
+    .cart-image{
+        background-image: $cart-image;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 2em;
+        height: 2em;
+        position: relative;
+        margin: .5em 1em;
+    }
 }
 
 // popup

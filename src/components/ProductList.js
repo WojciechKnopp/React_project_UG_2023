@@ -36,7 +36,7 @@ const ProductList = ({onAddToCart}) => {
                     <div className="card-body">
                         <h3 className="card-title">{product.name}</h3>
                         <p className="card-text"><strong>{product.price} zł</strong></p>
-                        <Link to={`/products/${product.id}`} className='ovr-btn'>Szczegóły</Link>
+                        <Link to={`/products/${product.id}`}><button className='btn-upper'>Szczegóły</button></Link>
                         <button className='ovr-btn' onClick={() => handleAddToCart(product)}>Dodaj do koszyka</button>
                     </div> 
                 </div>
