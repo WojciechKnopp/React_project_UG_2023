@@ -8,6 +8,7 @@ import DarkMode from './components/DarkMode';
 import MainPage from './components/MainPage';
 import ProductDetails from './components/ProductDetails';
 import DeliveryMethod from './components/DeliveryMethod';
+import Payment from './components/Payment';
 
 
 const NotFound = () => (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/delivery" element={<DeliveryMethod />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
       </Router>
     </ProductProvider>
