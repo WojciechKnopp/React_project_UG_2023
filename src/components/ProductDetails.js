@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useProductContext } from '../context/ProductContext';
+import PopupTimer from './PopupTimer';
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -16,6 +17,7 @@ const ProductDetails = () => {
                 <p>{product.description}</p>
             </div>
             <Link to='/products'><button className='ovr-btn'>Wróć do produktów</button></Link>
+            <PopupTimer />
         </div>
     );
 }

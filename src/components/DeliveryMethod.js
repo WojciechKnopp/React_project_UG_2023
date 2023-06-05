@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AddressForm from "./AddressForm";
+import PopupTimer from './PopupTimer';
 
 const DeliveryMethod = () => {
 
@@ -42,6 +43,7 @@ const DeliveryMethod = () => {
                     <button className='ovr-btn' onClick={handleBackFromDelivery}>Powrót</button>
                 </div>
             )}
+            <PopupTimer />
         </div>
     )
 }

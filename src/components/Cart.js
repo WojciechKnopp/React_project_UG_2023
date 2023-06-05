@@ -1,6 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import PopupTimer from './PopupTimer';
 
 const Cart = () => {
   const { cartItems, clearCart, removeFromCart } = useContext(CartContext);
@@ -47,6 +48,7 @@ const Cart = () => {
                     </>
                 )}
             </div>
+            <PopupTimer />
         </div>
     );
 }
