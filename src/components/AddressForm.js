@@ -15,15 +15,15 @@ const AddressForm = () => {
     });
 
     const validationSchema = Yup.object().shape({
-            city: Yup.string().required('Miasto jest wymagane'),
-            postalCode: Yup.string().required('Kod pocztowy jest wymagany'),
-            street: Yup.string().required('Nazwa ulicy jest wymagana'),
-            buildingNumber: Yup.string().required('Numer budynku jest wymagany'),
-            apartmentNumber: Yup.number(),
-            phoneNumber: Yup.number().required('Numer telefonu jest wymagany'),
-            firstName: Yup.string().required('Imię jest wymagane'),
-            lastName: Yup.string().required('Nazwisko jest wymagane'),
-            email: Yup.string().email('Niepoprawny email').required('Email jest wymagany'),
+        city: Yup.string().required('Miasto jest wymagane'),
+        postalCode: Yup.string().required('Kod pocztowy jest wymagany'),
+        street: Yup.string().required('Nazwa ulicy jest wymagana'),
+        buildingNumber: Yup.string().required('Numer budynku jest wymagany'),
+        apartmentNumber: Yup.number(),
+        phoneNumber: Yup.number().required('Numer telefonu jest wymagany'),
+        firstName: Yup.string().required('Imię jest wymagane'),
+        lastName: Yup.string().required('Nazwisko jest wymagane'),
+        email: Yup.string().email('Niepoprawny email').required('Email jest wymagany'),
     });
 
     return (

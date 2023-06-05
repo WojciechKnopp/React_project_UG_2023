@@ -9,6 +9,8 @@ $position-values: map-merge($position-values, $custom-position);
 
 $cart-image: url("./media/cart_image.png");
 $cart-image-dark-theme: url("./media/cart_image_dark_theme.png");
+$delivery-image: url("./media/delivery_image.png");
+$personal-image: url("./media/human_image.png");
 
 $color1: #151b54;
 $color2: #000080;
@@ -163,6 +165,31 @@ div.cart{
     border: $color1 solid 1px;
     border-radius: 1rem;
     padding: 3em;
+}
+
+.delivery{
+    width: 15vw;
+    height: 15vw;
+    padding: 1em;
+    border: $color1 solid 1px;
+    border-radius: 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.button-delivery{
+    @extend .delivery;
+    background-image: $delivery-image;
+    color: black;
+}
+.button-personal{
+    @extend .delivery;
+    background-image: $personal-image;
+    color: white;
 }
 
 // popup

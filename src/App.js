@@ -12,7 +12,7 @@ import DeliveryMethod from './components/DeliveryMethod';
 
 const NotFound = () => (
   <div>
-    <h1 className='alert alert-danger'>404 - Nie znaleziono strony</h1>
+    <h1>404 - Nie znaleziono strony</h1>
     <Link to="/">Strona domowa</Link>
   </div>
 );

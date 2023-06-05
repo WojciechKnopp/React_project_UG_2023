@@ -19,26 +19,26 @@ const DeliveryMethod = () => {
         setDelivery(false);
     }
 
-    // const handleChoosedPersonal = () => {
-    //     setChoosed(true);
-    //     setPersonal(true);
-    // }
+    const handleChoosedPersonal = () => {
+        setChoosed(true);
+        // setPersonal(true);
+        window.location.href = '/payment';
+    }
 
     return (
         <div className="h-100">
             {!choosed && (
                 <div className="h-100 d-flex flex-column justify-content-center align-items-center">
                     <h2>Wybierz sposób dostawy</h2>
-                    <div>
-                        <button className="ovr-btn" onClick={handleChoosedDelivery}>Dostawa</button>
-                        {/* <button onClick={handleChoosedPersonal}>Odbiór osobisty</button> */}
-                        <Link to="/payment"><button className='ovr-btn'>Odbiór osobisty</button></Link>
+                    <div className="w-100 d-flex justify-content-center">
+                        <button className="button-delivery" onClick={handleChoosedDelivery}>Dostawa</button>
+                        <button className='button-personal' onClick={handleChoosedPersonal}>Odbiór osobisty</button>
                     </div>
                     <Link to="/cart"><button className='ovr-btn'>Wróć</button></Link>
                 </div>
             )}
             {delivery && (
-                <div>
+                <div className="pb-2">
                     <AddressForm />
                     <button className='ovr-btn' onClick={handleBackFromDelivery}>Powrót</button>
                 </div>
