@@ -9,6 +9,7 @@ import MainPage from './components/MainPage';
 import ProductDetails from './components/ProductDetails';
 import DeliveryMethod from './components/DeliveryMethod';
 import Payment from './components/Payment';
+import Confirm from './components/Confirm';
 
 
 const NotFound = () => (
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/delivery" element={<DeliveryMethod />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/order-done" element={<Confirm />} />
         </Routes>
       </Router>
     </ProductProvider>

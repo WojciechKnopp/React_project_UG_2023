@@ -11,6 +11,8 @@ $cart-image: url("./media/cart_image.png");
 $cart-image-dark-theme: url("./media/cart_image_dark_theme.png");
 $delivery-image: url("./media/delivery_image.png");
 $personal-image: url("./media/human_image.png");
+$credit-card-image: url("./media/credit_card.png");
+$cash-image: url("./media/cash.png");
 
 $color1: #151b54;
 $color2: #000080;
@@ -167,7 +169,7 @@ div.cart{
     padding: 3em;
 }
 
-.delivery{
+.square-btn{
     width: 15vw;
     height: 15vw;
     padding: 1em;
@@ -182,14 +184,24 @@ div.cart{
     align-items: flex-end;
 }
 .button-delivery{
-    @extend .delivery;
+    @extend .square-btn;
     background-image: $delivery-image;
     color: black;
 }
 .button-personal{
-    @extend .delivery;
+    @extend .square-btn;
     background-image: $personal-image;
     color: white;
+}
+.button-card{
+    @extend .square-btn;
+    background-image: $credit-card-image;
+    color: $color1;
+}
+.button-cash{
+    @extend .square-btn;
+    background-image: $cash-image;
+    color: $color1;
 }
 
 // popup

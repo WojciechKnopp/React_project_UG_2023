@@ -1,12 +1,18 @@
 import { Formik, Form } from 'formik';
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import PopupTimer from './PopupTimer';
+import { CartContext } from '../context/CartContext';
 
 const Payment = () => {
     const [choosed, setChoosed] = useState(false);
     const [card, setCard] = useState(false);
     const [cash, setCash] = useState(false);
+
+    const { summary } = useContext(CartContext);
+    
+
+    const navigate = useNavigate();
 
     const handleChoosedCard = () => {
         setChoosed(true);
@@ -16,12 +22,12 @@ const Payment = () => {
     const handleChoosedCash = () => {
         setChoosed(true);
         setCash(true);
-        window.location.href = "/order-done"
+        navigate('/order-done');
     }
 
     const handlePayment = (values, { setFieldValue }) => {
         setFieldValue('paid', true);
-        window.location.href = "/order-done"
+        navigate('/order-done');
     };
 
     return (
@@ -37,10 +43,12 @@ const Payment = () => {
                 </div>
             )}
             {card && (
-                <div className="pb-2">
+                <div className="h-100 d-flex justify-content-center align-items-center text-center">
                    <Formik initialValues={{ paid: false }} onSubmit={handlePayment}>
                         <Form>
-                            <button type="submit">Zapłać</button>
+                            <h4>Suma do zapłaty</h4>
+                            <h3>{summary} zł</h3>
+                            <button className='ovr-btn' type="submit">Zapłać</button>
                         </Form>
                     </Formik>
                 </div>

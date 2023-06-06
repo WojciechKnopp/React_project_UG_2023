@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AddressForm from "./AddressForm";
 import PopupTimer from './PopupTimer';
 
 const DeliveryMethod = () => {
+
+    const navigate = useNavigate();
 
     const [choosed, setChoosed] = React.useState(false);
     const [delivery, setDelivery] = React.useState(false);
@@ -22,7 +24,7 @@ const DeliveryMethod = () => {
     const handleChoosedPersonal = () => {
         setChoosed(true);
         // setPersonal(true);
-        window.location.href = '/payment';
+        navigate('/payment');
     }
 
     return (
