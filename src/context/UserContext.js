@@ -6,6 +6,8 @@ const reducer = (state, action) => {
             return { ...state, deliveryData: action.payload };
         case "SET_PAYMENT_METHOD":
             return { ...state, paymentMethod: action.payload };
+        case "SET_TABLE_NUMBER":
+            return { ...state, tableNumber: action.payload };
         case "CLEAR":
             return {
                 deliveryData: {
@@ -39,9 +41,12 @@ export const UserProvider = ({ children }) => {
             phoneNumber: "",
             firstName: "",
             lastName: "",
-            email: ""
+            email: "",
         },
-        paymentMethod: ""
+        paymentMethod: "",
+        tableNumber: {
+            tableNumber: ""
+        }
     };
 
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -54,12 +59,16 @@ export const UserProvider = ({ children }) => {
         dispatch({ type: "SET_PAYMENT_METHOD", payload: data });
     };
 
+    const setTableNumberAction = (data) => {
+        dispatch({ type: "SET_TABLE_NUMBER", payload: data });
+    };
+
     const clearAction = () => {
         dispatch({ type: "CLEAR" });
     };
 
     return (
-        <userContext.Provider value={{ state, setDeliveryDataAction, setPaymentMethodAction, clearAction }}>
+        <userContext.Provider value={{ state, setDeliveryDataAction, setPaymentMethodAction, setTableNumberAction, clearAction }}>
             {children}
         </userContext.Provider>
     );

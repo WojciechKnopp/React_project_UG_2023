@@ -29,11 +29,13 @@ const Confirm = () => {
                     {state.deliveryData.buildingNumber}, {state.deliveryData.postalCode}{" "}
                     {state.deliveryData.city}
                 </p>
+                ) : ( state.tableNumber.tableNumber ? (
+                    <strong>Stolik numer {state.tableNumber.tableNumber}</strong>
                 ) : (
                 <p>
                     <strong>Odbiór osobisty</strong>
                 </p>
-            )}
+            ))}
             <Link to="/"><button onClick={handleBackToMainPage} className='btn-start'>Powrót na stronę główną</button></Link>
             <PopupTimer />
         </div>

@@ -13,6 +13,7 @@ $delivery-image: url("./media/delivery_image.png");
 $personal-image: url("./media/human_image.png");
 $credit-card-image: url("./media/credit_card.png");
 $cash-image: url("./media/cash.png");
+$table-image: url("./media/table_image.png");
 
 $color1: #151b54;
 $color2: #000080;
@@ -178,6 +179,7 @@ div.cart{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: $grayish;
     margin: 1em;
     display: flex;
     justify-content: center;
@@ -202,6 +204,11 @@ div.cart{
     @extend .square-btn;
     background-image: $cash-image;
     color: $color1;
+}
+.button-table{
+    @extend .square-btn;
+    background-image: $table-image;
+    color: white;
 }
 
 // popup
