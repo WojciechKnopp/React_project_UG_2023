@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AddressForm from "./AddressForm";
 import PopupTimer from './PopupTimer';
@@ -7,9 +7,8 @@ const DeliveryMethod = () => {
 
     const navigate = useNavigate();
 
-    const [choosed, setChoosed] = React.useState(false);
-    const [delivery, setDelivery] = React.useState(false);
-    // const [personal, setPersonal] = React.useState(false);
+    const [choosed, setChoosed] = useState(false);
+    const [delivery, setDelivery] = useState(false);
 
     const handleChoosedDelivery = () => {
         setChoosed(true);
@@ -23,7 +22,6 @@ const DeliveryMethod = () => {
 
     const handleChoosedPersonal = () => {
         setChoosed(true);
-        // setPersonal(true);
         navigate('/payment');
     }
 

@@ -3,13 +3,14 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PopupTimer from './PopupTimer';
 import { CartContext } from '../context/CartContext';
+import { userContext } from '../context/UserContext';
 
 const Payment = () => {
     const [choosed, setChoosed] = useState(false);
     const [card, setCard] = useState(false);
-    const [cash, setCash] = useState(false);
 
     const { summary } = useContext(CartContext);
+    const { setPaymentMethodAction, clearAction } = useContext(userContext);
     
 
     const navigate = useNavigate();
@@ -21,12 +22,13 @@ const Payment = () => {
 
     const handleChoosedCash = () => {
         setChoosed(true);
-        setCash(true);
+        setPaymentMethodAction('gotówka');
         navigate('/order-done');
     }
 
     const handlePayment = (values, { setFieldValue }) => {
         setFieldValue('paid', true);
+        setPaymentMethodAction('karta płatnicza');
         navigate('/order-done');
     };
 
@@ -39,7 +41,7 @@ const Payment = () => {
                         <button className="button-card" onClick={handleChoosedCard}>Karta</button>
                         <button className='button-cash' onClick={handleChoosedCash}>Gotówka</button>
                     </div>
-                    <Link to="/delivery"><button className='ovr-btn'>Wróć</button></Link>
+                    <Link to="/delivery"><button onClick={clearAction} className='ovr-btn'>Wróć</button></Link>
                 </div>
             )}
             {card && (

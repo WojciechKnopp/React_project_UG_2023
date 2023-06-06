@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { CartContext } from "../context/CartContext";
+import { userContext } from '../context/UserContext';
 
 const PopupTimer = () => {
     // clear cart
-    const { clearCart, cartItems } = React.useContext(CartContext);
+    const { clearCart } = useContext(CartContext);
+    const { clearAction } = useContext(userContext);
 
     // popup
     const [showPopup, setShowPopup] = useState(false);
@@ -17,6 +19,7 @@ const PopupTimer = () => {
         // przeniesienie na strone domowa
         window.location.href = "/";
         clearCart();
+        clearAction();
     }
 
 //#region timer to popup
