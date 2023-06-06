@@ -21,7 +21,10 @@ const reducer = (state, action) => {
                     lastName: "",
                     email: ""
                 },
-                paymentMethod: ""
+                paymentMethod: "",
+                tableNumber: {
+                    tableNumber: ""
+                }
             };
         default:
             return state;
