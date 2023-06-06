@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import ProductData from '../data.json';
+import axios from 'axios';
 
 const ProductContext = createContext();
 
@@ -9,13 +9,13 @@ const ProductProvider = ({ children }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try{
-                const productsData = await ProductData;
-                setProducts(productsData);
-            }
-            catch(err){
+                const response = await axios.get('http://127.0.0.1:8000/api/products/');
+                setProducts(response.data);
+            } catch(err){
                 console.log(err);
             }
-        }
+        };
+
         fetchProducts();
     }, []);
 
