@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { userContext } from '../context/UserContext';
 
 const AddressForm = () => {
+    const { setDeliveryDataAction } = useContext(userContext);
+
+    const navigate = useNavigate();
+
     const handleSubmit = (values) => {
         console.log(values);
-        window.location.href = '/payment';
+        setDeliveryDataAction(values);
+        navigate('/payment');
     };
 
     Yup.setLocale({
