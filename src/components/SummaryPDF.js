@@ -46,7 +46,7 @@ const SummaryPDF = ({order, cartItems, summary}) => {
                 </View>
             ) : ( order.tableNumber.tableNumber ? (
                 <View style={styles.section}>
-                    <Text>Stolik numer {order.tableNumber.tableNumber}</Text>
+                    <Text>Dostawa do stolika numer {order.tableNumber.tableNumber}</Text>
                 </View>
             ) : (
                 <View style={styles.section}>

@@ -109,6 +109,11 @@ button.ovr-btn{
     border-radius: 10px;
     background-color: $color3;
     color: white;
+
+    a{
+        color: white;
+        text-decoration: none;
+    }
 }
 
 .btn-start{
