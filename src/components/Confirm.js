@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { userContext } from "../context/UserContext";
 import PopupTimer from "./PopupTimer";
+import SummaryPDF from './SummaryPDF';
+import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 
 const Confirm = () => {
     const { state, clearAction } = useContext(userContext);
-    const { clearCart } = useContext(CartContext);
+    const { clearCart, cartItems, summary } = useContext(CartContext);
 
     const handleBackToMainPage = () => {
         clearCart();
@@ -18,6 +20,12 @@ const Confirm = () => {
     return (
         <div className="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
             <h2>Dziękujemy za złożenie zamówienia!</h2>
+            <PDFDownloadLink document={<SummaryPDF order={state} cartItems={cartItems} summary={summary} />}
+                fileName="potwierdzenie.pdf"
+                scale={0.1}
+            >
+                Wydrukuj potwierdzenie
+            </PDFDownloadLink>
             <p>Przewidywany czas oczekiwania na zamówienie to <strong>{ realisationTime } minut.</strong></p>
             <p className="text-center">
                 <strong>Sposób płatności</strong><br/>

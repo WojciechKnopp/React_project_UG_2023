@@ -22,13 +22,13 @@ const Payment = () => {
 
     const handleChoosedCash = () => {
         setChoosed(true);
-        setPaymentMethodAction('gotówka');
+        setPaymentMethodAction('gotowka');
         navigate('/order-done');
     }
 
     const handlePayment = (values, { setFieldValue }) => {
         setFieldValue('paid', true);
-        setPaymentMethodAction('karta płatnicza');
+        setPaymentMethodAction('karta platnicza');
         navigate('/order-done');
     };
 
